@@ -34,6 +34,59 @@ mode = {'ionian'    :[('w','w','h','w','w','w','h'), 0],
 kSigSeries = pd.Series(keySig).sort_index()
 modeSeries = pd.Series(mode)
 
+# Define Keys using Pandas Series to provide 1-indexed Scale to match
+# music nomenclature
+keyofF = pd.Series(('F','G','A','Bb','C','D','E','F'), (1,2,3,4,5,6,7,8))
+keyofC = pd.Series(('C','D','E','F','G','A','B','C'), (1,2,3,4,5,6,7,8))
+keyofG = pd.Series(('G','A','B','C','D','E','F#','G'), (1,2,3,4,5,6,7,8))
+keyofD = pd.Series(('D','E','F#','G','A','B','C#','D'), (1,2,3,4,5,6,7,8))
+keyofA = pd.Series(('A','B','C#','D','E','F#','G#','A'), (1,2,3,4,5,6,7,8))
+keyofE = pd.Series(('E','F#','G#','A','B','C#','D#','E'), (1,2,3,4,5,6,7,8))
+keyofB = pd.Series(('B','C#','D#','E','F#','G#','A#','B'), (1,2,3,4,5,6,7,8))
+keyofCSharp = pd.Series(['C#','D#','E#','F#','G#','A#','B#','C#'], (1,2,3,4,5,6,7,8))
+keyofGb = pd.Series(('Gb','Ab','Bb','Cb','Db','Eb','F','Gb'), (1,2,3,4,5,6,7,8))
+keyofDb = pd.Series(('Db','Eb','F','Gb','Ab','Bb','C','Db'), (1,2,3,4,5,6,7,8))
+keyofAb = pd.Series(('Ab','Bb','C','Db','Eb','Fb','Gb','Ab'), (1,2,3,4,5,6,7,8))
+keyofEb = pd.Series(('Eb','F','G','Ab','Bb','C','D','Eb'), (1,2,3,4,5,6,7,8))
+keyofBb = pd.Series(('Bb','C','D','Eb','F','G','A','Bb'), (1,2,3,4,5,6,7,8))
+keyofCb = pd.Series(['Cb','Db','Eb','Fb','Gb','Ab','Bb','Cb'], (1,2,3,4,5,6,7,8))
+
+# Define key signatures dictionary based on 1-indexed series
+keySigSeries = {'f': keyofF,'c': keyofC,'g': keyofG,'d': keyofD,'a': keyofA,
+                'e': keyofE,'b': keyofB,'c#': keyofCSharp,'gb': keyofGb,'db': keyofDb,
+                'ab': keyofAb,'eb': keyofEb,'bb': keyofBb,'cb': keyofCb}
+
+# Define the most common chords for each scape tone
+majorChords = pd.Series(('Maj7','min7', 'min7', 'Maj7', '7', 'min7', 'min7b5'), (1,2,3,4,5,6,7))
+minorChords = pd.Series(('min7', 'min7b5', 'Maj7','min7', 'min7', 'Maj7', '7'), (1,2,3,4,5,6,7))
+
+def buildProgression(prog_key, prog_tone, prog_array):
+# Take key, tonality and numerical sequence to build
+# a progression
+    _key = prog_key.lower()
+    _prog = list(map(int, prog_array))
+
+    _progstr = ''
+    for _chord in _prog:
+        if prog_tone =='M':
+            _progstr += keySigSeries[_key][_chord] + majorChords[_chord] + " "
+        else:
+            _progstr += keySigSeries[_key][_chord] + minorChords[_chord] + " "
+    #print(_progstr)
+    return _progstr
+############# End func buildProgression()
+
+# note1 = str(keySigSeries['c'][1])
+# chord1 = str(majorChords[1])
+
+# my_str = note1 + chord1 + " "
+# my_str += f"{keySigSeries['c'][4]}{majorChords[4]} "
+# my_str += f"{keySigSeries['c'][5]}{majorChords[5]}"
+#
+# print(my_str)
+
+
+
 # Debug
 # print(kSigSeries)
 #print(kSigSeries[['B','G']])
