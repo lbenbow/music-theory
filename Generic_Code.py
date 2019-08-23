@@ -8,32 +8,36 @@ import support
 
 ## Adding Text to test git
 
-control = 0
-while control != 1:
+# control = 0
+# while control != 1:
+#
+#
+#     print('Choose a Musical Progression to build!\n')
+#     prog_key = input("Enter Key: ")
+#     prog_tone = input("Major or Minor (M or m): ")
+#     prog_array = input("Enter Progression (numerals separated by commas): ").split(',')
+#
+#     prog = support.buildProgression(prog_key, prog_tone, prog_array)
+#     print(prog)
+#     print('\n')
+#     control = input('Choose to stay (0) or to exit(1): ')
+#     control = int(control)
+#
+#     if control == 1:
+#         print('Bye!')
+#         break
 
-
-    print('Choose a Musical Progression to build!\n')
-    prog_key = input("Enter Key: ")
-    prog_tone = input("Major or Minor (M or m): ")
-    prog_array = input("Enter Progression (numerals separated by commas): ").split(',')
-
-    prog = support.buildProgression(prog_key, prog_tone, prog_array)
-    print(prog)
-    print('\n')
-    control = input('Choose to stay (0) or to exit(1): ')
-    control = int(control)
-
-    if control == 1:
-        print('Bye!')
-        exit(0)
-
-#exit(0)
+# exit(0)
 
 sentKey = input('Enter Key Signature: ')
 print(sentKey)
 #exit(0)
 key = support.getkeysig(sentKey)
 print(f'Returned key {sentKey} = ', key)
+
+print(f'Key = {key}')
+exit(0)
+
 print()
 print()
 sentMode = input('Enter Mode: ')

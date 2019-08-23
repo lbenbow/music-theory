@@ -2,7 +2,7 @@ import sys
 import support
 
 #my_key = Key(key_signature='A')
-key = getkeysig('A')
+key = support.getkeysig('A')
 exit(0)
 print(f'Key = {key}')
 # print(f'Returned key {sentKey} = ', key)
