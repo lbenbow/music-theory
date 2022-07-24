@@ -1,6 +1,20 @@
 import sys
 import support
 
+nums = [3, 3]
+nums[0]
+target = 6
+
+
+for i in nums:
+    #    print(f'index = {i}: {nums(i).loc},')
+exit(0)
+
+  #  for j in nums:
+  #      print(f'index = {i}: {nums.index(i)}, {j}: {nums.index(j)}')
+
+exit(0)
+
 enter_key = 'Gb'
 
 my_key = support.Key(enter_key)
