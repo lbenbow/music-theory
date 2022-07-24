@@ -7,6 +7,7 @@ target = 6
 
 
 for i in nums:
+    print()
     #    print(f'index = {i}: {nums(i).loc},')
 exit(0)
 
